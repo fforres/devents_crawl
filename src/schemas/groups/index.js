@@ -21,9 +21,8 @@ export const upsertGroups = data => new Promise((resolve, reject) => {
 
   records.forEach((record) => {
     const queryData = modelCreator(record);
-    console.log(queryData);
     bulk.find({
-      meetup_id: record.meetup_id,
+      meetup_id: queryData.meetup_id,
     }).upsert().updateOne(queryData);
   });
   bulk.execute((err, bulkres) => {

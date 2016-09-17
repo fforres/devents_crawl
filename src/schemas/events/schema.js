@@ -36,7 +36,6 @@ const eventsSchema = new Schema({
   venue: {
     meetup_id: {
       type: Number,
-      required: true,
     },
     address: {
       type: String,
