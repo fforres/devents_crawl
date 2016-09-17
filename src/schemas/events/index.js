@@ -31,11 +31,12 @@ const modelCreator = (data, groupId) => {
   return object;
 };
 
-export const upsertEvents = data => new Promise((resolve, reject) => {
+export const upsertEvents = (data, groupId) => new Promise((resolve, reject) => {
   const bulk = eventsModel.collection.initializeUnorderedBulkOp();
   const records = data.data;
+  if (records.length <= 0) resolve(null);
   records.forEach((record) => {
-    const queryData = modelCreator(record);
+    const queryData = modelCreator(record, groupId);
     bulk.find({
       meetup_id: queryData.meetup_id,
     }).upsert().updateOne(queryData);

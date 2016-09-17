@@ -15,32 +15,11 @@ get('/find/groups', {
 .then(upsertGroups)
 .then(retrieveGroups)
 .then((groups) => {
-  // console.log(group._id, group.meetup_urlname),
-  const promises = groups.map((group) => {
-    return get(`/${group.meetup_urlname}/events`, {
-      page: 2,
-    })
-    .then(events => upsertEvents(events, group._id));
-  });
-  console.log(promises);
+  const promises = groups.map(group => get(`/${group.meetup_urlname}/events`, {
+    page: 2,
+  })
+  .then(events => upsertEvents(events, group._id)));
   return promises.all;
 })
 .then(console.log)
-.catch((err) => {
-  console.log(err);
-})
-
-//
-// // GETTING NEXT EVENT FOR 'Javascript-Chile'
-// get('/Javascript-Chile/events', {
-//   page: 2,
-// }).then((response) => {
-//   debugger;
-//   console.log(response.data);
-// })
-// .catch((err) => {
-//   console.log(err.response.config);
-//   console.log(err.response.status);
-//   console.log(err.response.statusText);
-//   console.log(err.response.data);
-// });
+.catch(console.log)

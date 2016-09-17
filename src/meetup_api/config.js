@@ -8,18 +8,11 @@ const authObject = {
 export const get = (url, params) => {
   const newParams = Object.assign({}, params, authObject);
   const newUrl = `${env.meetup.baseUrl}${url}`;
-  return axios.get(
-    newUrl, {
-      params: newParams,
-    }
-  );
+  return axios.get(newUrl, { params: newParams });
 };
 
 export const post = (url, params) => {
   const newParams = Object.assign({}, params, authObject);
   const newUrl = `${env.meetup.baseUrl}${url}`;
-  return axios.post(
-    newUrl,
-    newParams
-  );
+  return axios.post(newUrl, newParams);
 };
