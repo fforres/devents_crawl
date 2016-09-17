@@ -37,7 +37,9 @@
     "nodemon": "1.10.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development nodemon index.js",
+    "iron-node": "NODE_ENV=development iron-node index.js",
+    "start": "NODE_ENV=production node index.js"
   },
   "keywords": [],
   "author": "",
