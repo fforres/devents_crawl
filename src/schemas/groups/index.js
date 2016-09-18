@@ -10,6 +10,9 @@ const modelCreator = data => ({
   url: data.link,
   photo: data.key_photo ? data.key_photo.photo_link : '',
   hires_photo: data.key_photo ? data.key_photo.highres_link : '',
+  city: data.city,
+  country: data.country,
+  localized_country_name: data.localized_country_name,
   meetup_id: data.id,
   meetup_urlname: data.urlname,
   assistants_nickname: data.who,
@@ -41,7 +44,6 @@ export const retrieveGroups = ids => new Promise((resolve, reject) => {
       $in: ids,
     },
   }).exec((err, data) => {
-    console.log(data);
     if (err) reject(err);
     resolve(data);
   });

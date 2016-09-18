@@ -8,10 +8,9 @@ import { upsertEvents } from './schemas/events';
 mongoose.connect(env.mongodb.url);
 
 // GETTING ALL TECH MEETUPS FOR CHILE EVERY 30 minutes
-
-setInterval(() => {
+const start = () => {
   get('/find/groups', {
-    city: 'chile',
+    country: 'chile',
     category: 34,
   })
   .then(upsertGroups)
@@ -23,6 +22,14 @@ setInterval(() => {
     .then(events => upsertEvents(events, group._id)));
     return promises.all;
   })
-  .then(console.log)
+  .then(() => {
+    console.log('Done!');
+  })
   .catch(console.log);
-}, 1000 * 60 * 30);
+};
+
+if (process.env.NODE_ENV === 'development') {
+  start();
+} else {
+  setInterval(start, 1000 * 60 * 30);
+}
