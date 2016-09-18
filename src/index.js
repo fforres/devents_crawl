@@ -18,6 +18,7 @@ const start = () => {
   .then((groups) => {
     const promises = groups.map(group => get(`/${group.meetup_urlname}/events`, {
       page: 2,
+      fields: 'plain_text_description, fee',
     })
     .then(events => upsertEvents(events, group._id)));
     return promises.all;
