@@ -21,6 +21,17 @@ const eventsSchema = new Schema({
     type: Number,
     default: 0,
   },
+  fee: {
+    type: String,
+    default: '',
+  },
+  link: {
+    type: String,
+    default: '',
+  },
+  plain_text_description: {
+    type: String,
+  },
   time: {
     type: Number,
     default: 0,
