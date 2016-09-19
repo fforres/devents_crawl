@@ -16,8 +16,8 @@ const modelCreator = (data) => {
     meetup_urlname: data.urlname,
     assistants_nickname: data.who,
   };
-  ob.photo = data.key_photo && data.key_photo.photo_link ? data.key_photo.photo_link : 'http://placehold.it/300x150/E8117F/ffffff?text=No+photo+yet+:(';
-  ob.hires_photo = data.key_photo && data.key_photo.highres_link ? data.key_photo.highres_link : 'http://placehold.it/600x300/E8117F/ffffff?text=No+photo+yet+:(';
+  ob.photo = data.key_photo && data.key_photo.photo_link ? data.key_photo.photo_link : null;
+  ob.hires_photo = data.key_photo && data.key_photo.highres_link ? data.key_photo.highres_link : null;
   return ob;
 };
 

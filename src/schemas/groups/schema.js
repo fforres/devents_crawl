@@ -21,12 +21,10 @@ const groupSchema = new Schema({
   },
   photo: {
     type: String,
-    default: 'http://placehold.it/300x150/E8117F/ffffff?text=No+photo+yet+:(',
     required: true,
   },
   hires_photo: {
     type: String,
-    default: 'http://placehold.it/600x300/E8117F/ffffff?text=No+photo+yet+:(',
     required: true,
   },
   meetup_id: {
