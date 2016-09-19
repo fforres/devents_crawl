@@ -44,6 +44,9 @@ const eventsSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
+  name: {
+    type: String,
+  },
   venue: {
     meetup_id: {
       type: Number,
