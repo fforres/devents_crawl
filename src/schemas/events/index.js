@@ -10,6 +10,7 @@ const modelCreator = (data, groupId) => {
     assistants_current: data.yes_rsvp_count,
     assistants_waitlist: data.waitlist_count,
     time: data.time,
+    name: data.name,
     fee: data.fee ? data.fee.amount : '0',
     link: data.link,
     plain_text_description: data.plain_text_description,
